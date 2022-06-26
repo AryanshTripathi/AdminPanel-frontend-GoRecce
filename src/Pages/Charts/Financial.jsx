@@ -24,7 +24,7 @@ const Financial = () => {
 	const { currentMode } = useStateContext();
 	return (
 		<div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl flex flex-col">
-			<Header category="Chart" title="Inflation Rate" change={true} />
+			<Header category="Chart" title="Financial Chart" change={true} />
 			<ChartComponent
 				id="charts"
 				primaryXAxis={FinancialPrimaryXAxis}
