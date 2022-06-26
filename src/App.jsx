@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./Components";
@@ -37,7 +37,7 @@ function App() {
 
 	return (
 		<div className={currentMode == "Dark" ? "dark" : ""}>
-			<BrowserRouter>
+			<HashRouter>
 				<div className="flex relative dark:bg-main-dark-bg xl:overflow-x-hidden">
 					{/* Theme Settings Icon */}
 					<div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
@@ -105,7 +105,7 @@ function App() {
 						</div>
 					</div>
 				</div>
-			</BrowserRouter>
+			</HashRouter>
 		</div>
 	);
 }
