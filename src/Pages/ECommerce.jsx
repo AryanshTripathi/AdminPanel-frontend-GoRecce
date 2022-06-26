@@ -1,5 +1,4 @@
 import React from "react";
-import { BsCurrencyDollar } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
 import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
@@ -20,6 +19,7 @@ import {
 	dropdownData,
 	SparklineAreaData,
 	ecomPieChartData,
+	stackedCustomSeries,
 } from "../data/dummy";
 
 import { useStateContext } from "../Context/ContextProvider";
@@ -143,7 +143,7 @@ const ECommerce = () => {
 								</p>
 							</div>
 							<StackedChart
-								currentMode={currentMode}
+								customSeries={stackedCustomSeries}
 								width="320px"
 								height="360px"
 							/>
