@@ -3,7 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./Components";
-import { ECommerce, Users, Customers, DeactivationRequest } from "./Pages";
+import {
+	ECommerce,
+	Users,
+	Customers,
+	DeactivationRequest,
+	User,
+} from "./Pages";
 import { ToastContainer } from "react-toastify";
 
 import { useStateContext } from "./Context/ContextProvider";
@@ -69,6 +75,7 @@ function App() {
 								<Route path="/users" element={<Users />} />
 								<Route path="/customers" element={<Customers />} />
 								<Route path="/deactivation" element={<DeactivationRequest />} />
+								<Route path="/user/:id" element={<User />} />
 							</Routes>
 						</div>
 					</div>
