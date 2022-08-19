@@ -23,6 +23,7 @@ import {
 	BsShield,
 	BsChatLeft,
 } from "react-icons/bs";
+import { MdOutlineCancel } from "react-icons/md";
 import { BiColorFill } from "react-icons/bi";
 import { IoMdContacts } from "react-icons/io";
 import { RiContactsLine, RiStockLine } from "react-icons/ri";
@@ -43,6 +44,45 @@ import product5 from "./product5.jpg";
 import product6 from "./product6.jpg";
 import product7 from "./product7.jpg";
 import product8 from "./product8.jpg";
+
+export const links = [
+	{
+		title: "Dashboard",
+		links: [
+			{
+				name: "ecommerce",
+				icon: <FiShoppingBag />,
+			},
+		],
+	},
+
+	{
+		title: "Pages",
+		links: [
+			{
+				name: "users",
+				icon: <IoMdContacts />,
+			},
+			{
+				name: "customers",
+				icon: <RiContactsLine />,
+			},
+		],
+	},
+	{
+		title: "Requests",
+		links: [
+			{
+				name: "listing",
+				icon: <MdOutlineCancel />,
+			},
+			{
+				name: "deactivation",
+				icon: <MdOutlineCancel />,
+			},
+		],
+	},
+];
 
 export const gridOrderImage = (props) => (
 	<div>
@@ -77,23 +117,25 @@ export const kanbanGrid = [
 
 	{ headerText: "Done", keyField: "Close", allowToggle: true },
 ];
-const gridEmployeeProfile = (props) => (
-	<div className="flex items-center gap-2">
-		<img
-			className="rounded-full w-10 h-10"
-			src={props.EmployeeImage}
-			alt="employee"
-		/>
-		<p>{props.Name}</p>
-	</div>
-);
 
-const gridEmployeeCountry = (props) => (
-	<div className="flex items-center justify-center gap-2">
-		<GrLocation />
-		<span>{props.Country}</span>
-	</div>
-);
+// const gridEmployeeProfile = (props) => (
+// 	<div className="flex items-center gap-2">
+// 		<img
+// 			className="rounded-full w-10 h-10"
+// 			src={props.EmployeeImage}
+// 			alt="employee"
+// 		/>
+// 		<p>{props.Name}</p>
+// 	</div>
+// );
+
+// const gridEmployeeCountry = (props) => (
+// 	<div className="flex items-center justify-center gap-2">
+// 		<GrLocation />
+// 		<span>{props.Country}</span>
+// 	</div>
+// );
+
 export const EditorData = () => (
 	<div>
 		<h3>
@@ -140,6 +182,7 @@ export const EditorData = () => (
 		</h3>
 	</div>
 );
+
 const customerGridImage = (props) => (
 	<div className="image flex gap-4">
 		<img
@@ -163,6 +206,7 @@ const customerGridStatus = (props) => (
 		<p>{props.Status}</p>
 	</div>
 );
+
 export const areaPrimaryXAxis = {
 	valueType: "DateTime",
 	labelFormat: "y",
@@ -171,7 +215,6 @@ export const areaPrimaryXAxis = {
 	edgeLabelPlacement: "Shift",
 	labelStyle: { color: "gray" },
 };
-
 export const areaPrimaryYAxis = {
 	labelFormat: "{value}%",
 	lineStyle: { width: 0 },
@@ -230,6 +273,23 @@ const areaChartData = [
 		{ x: new Date(2011, 0, 1), y: 2.3 },
 	],
 ];
+export const barChartData = [
+	[
+		{ x: "USA", y: 46 },
+		{ x: "GBR", y: 27 },
+		{ x: "CHN", y: 26 },
+	],
+	[
+		{ x: "USA", y: 37 },
+		{ x: "GBR", y: 23 },
+		{ x: "CHN", y: 18 },
+	],
+	[
+		{ x: "USA", y: 38 },
+		{ x: "GBR", y: 17 },
+		{ x: "CHN", y: 26 },
+	],
+];
 
 export const areaCustomSeries = [
 	{
@@ -260,25 +320,6 @@ export const areaCustomSeries = [
 		width: "2",
 	},
 ];
-
-export const barChartData = [
-	[
-		{ x: "USA", y: 46 },
-		{ x: "GBR", y: 27 },
-		{ x: "CHN", y: 26 },
-	],
-	[
-		{ x: "USA", y: 37 },
-		{ x: "GBR", y: 23 },
-		{ x: "CHN", y: 18 },
-	],
-	[
-		{ x: "USA", y: 38 },
-		{ x: "GBR", y: 17 },
-		{ x: "CHN", y: 26 },
-	],
-];
-
 export const barCustomSeries = [
 	{
 		dataSource: barChartData[0],
@@ -342,7 +383,6 @@ export const colorMappingData = [
 	["#FFA500"],
 	["#FF4040"],
 ];
-
 export const rangeColorMapping = [
 	{ label: "1°C to 10°C", start: 1, end: 10, colors: colorMappingData[1] },
 
@@ -360,7 +400,6 @@ export const rangeColorMapping = [
 		colors: colorMappingData[3],
 	},
 ];
-
 export const ColorMappingPrimaryXAxis = {
 	valueType: "Category",
 	majorGridLines: { width: 0 },
@@ -374,7 +413,6 @@ export const ColorMappingPrimaryYAxis = {
 	labelFormat: "{value}°C",
 	title: "Temperature",
 };
-
 export const FinancialPrimaryXAxis = {
 	valueType: "DateTime",
 	labelFormat: "MMM y",
@@ -463,138 +501,6 @@ export const customersGrid = [
 		width: "120",
 		textAlign: "Center",
 		isPrimaryKey: true,
-	},
-];
-
-export const employeesGrid = [
-	{
-		headerText: "Employee",
-		width: "150",
-		template: gridEmployeeProfile,
-		textAlign: "Center",
-	},
-	{ field: "Name", headerText: "", width: "0", textAlign: "Center" },
-	{
-		field: "Title",
-		headerText: "Designation",
-		width: "170",
-		textAlign: "Center",
-	},
-	{
-		headerText: "Country",
-		width: "120",
-		textAlign: "Center",
-		template: gridEmployeeCountry,
-	},
-
-	{
-		field: "HireDate",
-		headerText: "Hire Date",
-		width: "135",
-		format: "yMd",
-		textAlign: "Center",
-	},
-
-	{
-		field: "ReportsTo",
-		headerText: "Reports To",
-		width: "120",
-		textAlign: "Center",
-	},
-	{
-		field: "EmployeeID",
-		headerText: "Employee ID",
-		width: "125",
-		textAlign: "Center",
-	},
-];
-
-export const links = [
-	{
-		title: "Dashboard",
-		links: [
-			{
-				name: "ecommerce",
-				icon: <FiShoppingBag />,
-			},
-		],
-	},
-
-	{
-		title: "Pages",
-		links: [
-			{
-				name: "orders",
-				icon: <AiOutlineShoppingCart />,
-			},
-			{
-				name: "employees",
-				icon: <IoMdContacts />,
-			},
-			{
-				name: "customers",
-				icon: <RiContactsLine />,
-			},
-		],
-	},
-	{
-		title: "Apps",
-		links: [
-			{
-				name: "calendar",
-				icon: <AiOutlineCalendar />,
-			},
-			{
-				name: "kanban",
-				icon: <BsKanban />,
-			},
-			{
-				name: "editor",
-				icon: <FiEdit />,
-			},
-			{
-				name: "color-picker",
-				icon: <BiColorFill />,
-			},
-		],
-	},
-	{
-		title: "Charts",
-		links: [
-			{
-				name: "line",
-				icon: <AiOutlineStock />,
-			},
-			{
-				name: "area",
-				icon: <AiOutlineAreaChart />,
-			},
-
-			{
-				name: "bar",
-				icon: <AiOutlineBarChart />,
-			},
-			{
-				name: "pie",
-				icon: <FiPieChart />,
-			},
-			{
-				name: "financial",
-				icon: <RiStockLine />,
-			},
-			{
-				name: "color-mapping",
-				icon: <BsBarChart />,
-			},
-			{
-				name: "pyramid",
-				icon: <GiLouvrePyramid />,
-			},
-			{
-				name: "stacked",
-				icon: <AiOutlineBarChart />,
-			},
-		],
 	},
 ];
 
@@ -1466,576 +1372,6 @@ export const customersData = [
 		Weeks: "34",
 		Budget: "$16.5k",
 		Location: "USA",
-	},
-];
-
-export const employeesData = [
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 1,
-		Name: "Nancy Davolio",
-		Title: "Sales Representative",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 2,
-		Name: "Nasimiyu Danai",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar3,
-	},
-	{
-		EmployeeID: 3,
-		Name: "Iulia Albu",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar4,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Siegbert Gottfried",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Omar Darobe",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 4,
-		Name: "Penjani Inyene",
-		Title: "Marketing Head",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar,
-	},
-	{
-		EmployeeID: 5,
-		Name: "Miron Vitold",
-		Title: "HR",
-		HireDate: "01/02/2021",
-		Country: "USA",
-		ReportsTo: "Carson",
-		EmployeeImage: avatar2,
 	},
 ];
 
@@ -2947,6 +2283,7 @@ export const lineChartData = [
 		{ x: new Date(2011, 0, 1), y: 100 },
 	],
 ];
+
 export const dropdownData = [
 	{
 		Id: "1",

@@ -1,26 +1,10 @@
 import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./Components";
-import {
-	ECommerce,
-	Orders,
-	Calendar,
-	Employee,
-	Stacked,
-	Pyramid,
-	Customers,
-	Kanban,
-	Area,
-	Line,
-	Bar,
-	Pie,
-	Financial,
-	ColorPicker,
-	ColorMapping,
-	Editor,
-} from "./Pages";
+import { ECommerce, Users, Customers, DeactivationRequest } from "./Pages";
+import { ToastContainer } from "react-toastify";
 
 import { useStateContext } from "./Context/ContextProvider";
 
@@ -37,7 +21,7 @@ function App() {
 
 	return (
 		<div className={currentMode == "Dark" ? "dark" : ""}>
-			<HashRouter>
+			<BrowserRouter>
 				<div className="flex relative dark:bg-main-dark-bg xl:overflow-x-hidden">
 					{/* Theme Settings Icon */}
 					<div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
@@ -82,30 +66,14 @@ function App() {
 								<Route path="/ecommerce" element={<ECommerce />} />
 
 								{/* Pages */}
-								<Route path="/orders" element={<Orders />} />
-								<Route path="/employees" element={<Employee />} />
+								<Route path="/users" element={<Users />} />
 								<Route path="/customers" element={<Customers />} />
-
-								{/* Apps */}
-								<Route path="/kanban" element={<Kanban />} />
-								<Route path="/editor" element={<Editor />} />
-								<Route path="/calendar" element={<Calendar />} />
-								<Route path="/color-picker" element={<ColorPicker />} />
-
-								{/* Charts */}
-								<Route path="/line" element={<Line />} />
-								<Route path="/area" element={<Area />} />
-								<Route path="/bar" element={<Bar />} />
-								<Route path="/pie" element={<Pie />} />
-								<Route path="/financial" element={<Financial />} />
-								<Route path="/color-mapping" element={<ColorMapping />} />
-								<Route path="/pyramid" element={<Pyramid />} />
-								<Route path="/stacked" element={<Stacked />} />
+								<Route path="/deactivation" element={<DeactivationRequest />} />
 							</Routes>
 						</div>
 					</div>
 				</div>
-			</HashRouter>
+			</BrowserRouter>
 		</div>
 	);
 }

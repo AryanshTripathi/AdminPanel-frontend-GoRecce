@@ -11,22 +11,22 @@ import {
 	Toolbar,
 } from "@syncfusion/ej2-react-grids";
 
-import { employeesData, contextMenuItems, employeesGrid } from "../data/dummy";
+import { UsersData, UsersGrid } from "../data/Users/userData";
 
 import { Header } from "../Components";
 
-const Employee = () => {
+const Users = () => {
 	return (
 		<div className="m-2 mt-12 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
-			<Header title="Employees" category="Page" />
+			<Header title="Users" category="Page" />
 			<GridComponent
-				dataSource={employeesData}
+				dataSource={UsersData}
 				allowPaging
 				allowSorting
 				toolbar={["Search"]}
 				width="auto">
 				<ColumnsDirective>
-					{employeesGrid.map((item, index) => (
+					{UsersGrid.map((item, index) => (
 						<ColumnDirective key={index} {...item} />
 					))}
 				</ColumnsDirective>
@@ -36,4 +36,4 @@ const Employee = () => {
 	);
 };
 
-export default Employee;
+export default Users;
