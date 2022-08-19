@@ -38,6 +38,16 @@ const gridUserButton = (props) => (
 	</Link>
 );
 
+const gridUserActionButton = (props) => (
+	<Link
+		to={`/`}
+		style={{
+			textDecoration: "none",
+		}}>
+		<ButtonComponent cssClass="e-primary rounded">View More</ButtonComponent>
+	</Link>
+);
+
 const gridUserStatus = (props) => (
 	<div className="flex items-center justify-start gap-2 ml-12">
 		<div
@@ -4711,7 +4721,7 @@ export const UserBookingGrid = [
 	},
 	{
 		headerText: "Action",
-		template: gridUserButton,
+		template: gridUserActionButton,
 		width: "100",
 		textAlign: "Center",
 	},
@@ -4738,7 +4748,7 @@ export const UserListingGrid = [
 	},
 	{
 		headerText: "Action",
-		template: gridUserButton,
+		template: gridUserActionButton,
 		width: "100",
 		textAlign: "Center",
 	},
