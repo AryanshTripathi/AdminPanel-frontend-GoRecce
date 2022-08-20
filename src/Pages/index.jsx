@@ -2,6 +2,7 @@ export { default as ECommerce } from "./ECommerce";
 export { default as Users } from "./Users";
 export { default as Customers } from "./Customers";
 export { default as DeactivationRequest } from "./DeactivationRequest";
+export { default as User } from "./User";
 
 export { default as Area } from "./Charts/Area";
 export { default as Bar } from "./Charts/Bar";
